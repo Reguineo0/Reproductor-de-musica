@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+html{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background{
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+}
+
+.background img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    min-width: 50%;
+    min-height: 50%;
+    filter: blur(15px);
+    -webkit-filter: blur(50px);
+    transform: scale(1.1);
+}
+
+.container{
+    background-color: #e7e7e7;
+    height: 510px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+}
+
+.container:hover{
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.player-img{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top: -50px;
+    left: 50px;
+}
+
+.player-img img{
+    object-fit: cover;
+    border-radius: 20px;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+}
+
+.player-img:hover img{
+    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.8);
+}
+
+.player-img img.active{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+    opacity: 1;
+}
+
+h2{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0 0;
+}
+
+h3{
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0 0;
+}
+
+.player-progress{
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 40px 20px 35px;
+    height: 6px;
+    width: 90%;
+}
+
+.progress{
+    background-color: #212121;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.music-duration{
+    position: relative;
+    top: -25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player-controls{
+    position: relative;
+    top: -15px;
+    left: 120px;
+    width: 200px;
+}
+
+.fa-solid{
+    font-size: 30px;
+    color: #666;
+    margin-right: 30px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.fa-solid:hover{
+    filter: brightness(40%);
+}
+
+.play-button{
+    font-size: 44px;
+    position: relative;
+    top: 3px;
+}
+/* Estilos para el control de volumen estilo Spotify */
+
+.volume-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 30px ;
+}
+
+.volume-icon {
+  position: absolute;
+  display: none;
+  margin-right: 0px;
+}
+
+.volume-icon.active {
+  display: inline-block;
+}
+
+input[type="range"] {
+  margin-left: 40px; /* Ajustar según sea necesario */
+  vertical-align: middle;
+}
+#volume-control {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90px;
+  height: 8px;
+  background: linear-gradient(to right, #1db954, #1db954);
+  outline: none;
+  opacity: 0.7;
+  margin-left: 35px;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+}
+
+#volume-control:hover {
+  opacity: 1;
+}
+
+#volume-control::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1db954;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#volume-control::-webkit-slider-thumb:hover {
+  background: #1ed760;
+}
+
+#volume-control::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1db954;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#volume-control::-moz-range-thumb:hover {
+  background: #1ed760;
+}
+ 
+.volume-container {
+  display: flex;
+  align-items: center;
+}
+
+.volume-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.volume-bars {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.volume-bar {
+  width: 5px;
+  height: 10px;
+  background-color: #666;
+  margin-right: 2px;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+}
+
+.volume-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: 100px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+  opacity: 1;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: #ddd;
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+input[type="range"]:hover::-ms-thumb {
+  opacity: 1;
+}
